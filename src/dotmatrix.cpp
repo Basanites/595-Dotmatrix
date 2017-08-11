@@ -1,5 +1,6 @@
 #include "dotmatrix.hpp"
-#include "Arduino.h"
+#include <Arduino.h>
+#include <limits.h>
 
 Dotmatrix::Dotmatrix() {
   width = 8;
@@ -40,7 +41,7 @@ void Dotmatrix::writeDot(uint16_t xPosition, uint16_t yPosition) {
 
 void Dotmatrix::writePattern(uint16_t xPattern, uint16_t yPattern) {
   digitalWrite(latchPin, LOW);
-  shiftOut(xDataPin, clockPin, MSBFIRST, xPattern);
+  shiftOut(xDataPin, clockPin, MSBFIRST, xPattern xor UINT_MAX);
   shiftOut(yDataPin, clockPin, MSBFIRST, yPattern);
   digitalWrite(latchPin, HIGH);
 }
