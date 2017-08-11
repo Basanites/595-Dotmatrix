@@ -7,14 +7,14 @@
 class Dotmatrix {
 public:
   Dotmatrix();
-  Dotmatrix(int width, int height, uint8_t clockPin, uint8_t latchPin,
+  Dotmatrix(uint16_t width, uint16_t height, uint8_t clockPin, uint8_t latchPin,
             uint8_t xDataPin, uint8_t yDataPin);
   void begin();
-  void writeDot(int xPosition, int yPosition);
-  void writePattern(int xPattern, int yPattern);
+  void writeDot(uint16_t xPosition, uint16_t yPosition);
+  void writePattern(uint16_t xPattern, uint16_t yPattern);
 
-  int getWidth();
-  int getHeight();
+  uint16_t getWidth();
+  uint16_t getHeight();
   void setClockPin(uint8_t clockPin);
   void setLatchPin(uint8_t latchPin);
   void setXDataPin(uint8_t xDataPin);
@@ -25,8 +25,8 @@ private:
   uint8_t latchPin;
   uint8_t xDataPin;
   uint8_t yDataPin;
-  int width;
-  int height;
+  uint16_t width;
+  uint16_t height;
 };
 
 #endif
